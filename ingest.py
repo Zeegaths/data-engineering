@@ -1,6 +1,9 @@
 import os
 import time
+import socket
+import urllib3.util.connection as urllib3_cn
 
+urllib3_cn.allowed_gai_family = lambda: socket.AF_INET
 import pandas as pd
 import requests
 from sqlalchemy import create_engine, text
@@ -11,7 +14,7 @@ DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "postgres")
 DB_NAME = os.getenv("DB_NAME", "crypto")
 
-API_URL = "https://mempool.space/api/blocks"
+API_URL = "https://blockstream.info/api/blocks"
 TABLE = "btc_blocks"
 
 

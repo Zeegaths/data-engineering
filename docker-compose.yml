@@ -17,7 +17,6 @@ services:
   ingest:
     build:
       context: .
-      network: host
     environment:
       DB_HOST: "db"
       DB_PORT: "5432"
